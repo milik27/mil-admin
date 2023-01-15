@@ -2,61 +2,36 @@
   "name": "mil-admin",
   "version": "0.0.1",
   "description": "",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run prettier && npm run lint",
-    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "test": "jest --config jestconfig.json"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --dist-dir docs --public-url .",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/milik27/mil-admin.git"
   },
-  "keywords": [
-    "react",
-    "typescript",
-    "admin-panel",
-    "react-admin"
-  ],
   "author": "Nikita<nikitati27@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/milik27/mil-admin/issues"
   },
   "homepage": "https://github.com/milik27/mil-admin#readme",
-  "peerDependencies": {
-    "react": ">=18"
-  },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0",
-    "@types/jest": "^29.2.5",
     "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.32.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "jest": "^29.3.1",
-    "jest-canvas-mock": "^2.4.0",
-    "jest-environment-jsdom": "^29.3.1",
-    "prettier": "^2.8.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "ts-jest": "^29.0.5",
+    "mil-admin": "^0.0.1",
+    "parcel": "^2.8.2",
+    "process": "^0.11.10",
     "typescript": "^4.9.4"
   },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ]
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
